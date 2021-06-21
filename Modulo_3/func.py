@@ -13,15 +13,15 @@ class Modelo_prophet_semanal:
         self.modelo.fit(self.treino)
         self.previsao = self.modelo.predict(self.modelo.make_future_dataframe(periods=teste_periodo))
     
-    def plota(self, xlabel='', ylabel='', teste=True, changepoint=True, ax=None, show=False, month_freq=3, kwargs_modeloplot={}, kwargs_testeplot={}):
+    def plota(self, xlabel='', ylabel='', teste=True, changepoint=False, ax=None, show=False, month_freq=3, kwargs_modeloplot={}, kwargs_testeplot={}, linestyle=''):
     
         if ax is None:
-            fig = plt.figure(figsize=(20,10))
-            ax = fig.add_subplot(111)
+            fig, ax = plt.subplots(figsize=(20,10))
+            ax_none = True
         
         plt.sca(ax)
         self.modelo.plot(self.previsao, xlabel=xlabel, ylabel=ylabel, ax=ax, **kwargs_modeloplot)
-        plt.plot(self.teste['ds'], self.teste['y'], **kwargs_testeplot)
+        plt.plot(self.teste['ds'], self.teste['y'], linestyle = linestyle, **kwargs_testeplot)
         
         if len(self.teste) > 0:
             plt.xticks(pd.date_range(min(self.treino['ds']), max(self.teste['ds']), freq=f'{month_freq}MS'),pd.date_range(min(self.treino['ds']), max(self.teste['ds']), freq=f'{month_freq}MS').strftime('%Y-%b'))
@@ -34,5 +34,5 @@ class Modelo_prophet_semanal:
         if show is True:
             plt.show()
             
-        elif ax is None:
+        elif ax_none is True:
             return fig
