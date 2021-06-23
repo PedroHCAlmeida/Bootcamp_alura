@@ -1,5 +1,6 @@
 from fbprophet import Prophet
 from fbprophet.plot import add_changepoints_to_plot
+from fbprophet.diagnostics import cross_validation
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -36,3 +37,6 @@ class Modelo_prophet_semanal:
             
         elif ax_none is True:
             return fig
+    
+    def cross_validation(self, initial='180 days', period='30 days', horizon = '30 days'):
+        self.cross = cross_validation(self.modelo, initial=initial, period=period, horizon=horizon)
