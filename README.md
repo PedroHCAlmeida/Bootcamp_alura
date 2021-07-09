@@ -7,9 +7,9 @@ Este repositório está destinado para as aulas e os desafios do [bootcamp de Da
 ## Módulo 1 : Python e pandas para análise de dados reais
 [Projeto Final](https://github.com/PedroHCAlmeida/Projeto_final_M1_bootcamp_alura)
 ## Módulo 2 : Visualização de dados com Seaborn e Matplotlib
-
+[Projeto Final](https://github.com/PedroHCAlmeida/projeto_um_mal_silencioso)
 ## Módulo 3 : Análise de séries temporais
-
+[Projeto Final](https://github.com/PedroHCAlmeida/analise_temporal_COVID_Brasil)
 ## Módulo 4 : Tratamento, análise e Machine Learning aplicado
 
 ## Módulo 5 : Modelos, métricas e validações em Machine Learning
